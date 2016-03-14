@@ -1,0 +1,11 @@
+version: 1.0.{build}
+before_build:
+- cmd: nuget restore .\HighchartsExportClient\HighchartsExportClient.sln
+build:
+  verbosity: minimal
+deploy:
+  provider: NuGet  
+  api_key:
+    secure: lQfVnAoVblKur4VaMPXgca2Ml/Q08P3Q1VhgvnNS1Owk3immWVWbJIsZL+YNo2sB
+  skip_symbols: false  
+  artifact: /.*\.nupkg/
