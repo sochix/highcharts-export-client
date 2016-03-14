@@ -106,6 +106,8 @@ namespace HighchartsExportClient
 			var request = GetRequestSettings(options, getLink: false, isSvg: false);
 			var response = await MakeRequest(request);
 
+			response.EnsureSuccessStatusCode();
+
 			return await response.Content.ReadAsByteArrayAsync();
 		}
 
