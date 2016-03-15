@@ -85,7 +85,11 @@ namespace HighchartsExportClient
 		{
 			using (var httpClient = new HttpClient())
 			{
-				return await httpClient.PostAsync(_settings.ServerAddress, new FormUrlEncodedContent(settings));
+				var response =  await httpClient.PostAsync(_settings.ServerAddress, new FormUrlEncodedContent(settings));
+
+				response.EnsureSuccessStatusCode();
+
+				return response;
 			}
 		}
 
@@ -105,8 +109,6 @@ namespace HighchartsExportClient
 		{
 			var request = GetRequestSettings(options, getLink: false, isSvg: false);
 			var response = await MakeRequest(request);
-
-			response.EnsureSuccessStatusCode();
 
 			return await response.Content.ReadAsByteArrayAsync();
 		}
