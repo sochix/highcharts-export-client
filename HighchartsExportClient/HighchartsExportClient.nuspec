@@ -1,18 +1,21 @@
-<?xml version="1.0"?>
-<package >
-  <metadata>
-    <id>highcharts-export-client</id>
-    <version>1.0.0</version>
-    <title>Highchart export server client</title>
-    <authors>Ilya Pirozhenko</authors>
-    <owners>Ilya Pirozhenko</owners>
-    <licenseUrl>https://github.com/sochix/highcharts-export-client#license</licenseUrl>
-    <projectUrl>https://github.com/sochix/highcharts-export-client</projectUrl>
-    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Highcharts-export-client is highcharts-export-server API wrapper. With help of this library you can generate fancy charts and export it to png, pdf or svg formats. </description>
-    <releaseNotes>Initial release.</releaseNotes>
-    <copyright>Copyright 2016</copyright>
-    <tags>chart graph highchart</tags>
-  </metadata>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>highcharts-export-client</id>
+        <version>$version</version>
+        <title>Highchart export server client</title>
+        <authors>Ilya Pirozhenko</authors>
+        <owners>Ilya Pirozhenko</owners>
+        <licenseUrl>https://github.com/sochix/highcharts-export-client#license</licenseUrl>
+        <projectUrl>https://github.com/sochix/highcharts-export-client</projectUrl>
+        <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Highcharts-export-client is highcharts-export-server API wrapper. With help of this library you can generate fancy charts and export it to png, pdf or svg formats.</description>
+        <releaseNotes>Initial release.</releaseNotes>
+        <copyright>Copyright 2016</copyright>
+        <tags>chart graph highchart</tags>
+    </metadata>
+    <files>
+        <file src="bin\Debug\HighchartsExportClient.dll" target="lib\net452\HighchartsExportClient.dll" />
+    </files>
 </package>
