@@ -16,7 +16,7 @@ With help of this library you can generate fancy charts and export it to png, pd
 Install via NuGet
 
 ```
-PM > Install-Package Newtonsoft.Json
+PM > Install-Package highcharts-export-client
 ```
 
 #Requirements
