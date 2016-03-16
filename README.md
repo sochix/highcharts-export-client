@@ -5,7 +5,8 @@
 
 Highcharts-export-client is [highcharts-export-server](http://www.highcharts.com/docs/export-module/export-module-overview) API wrapper. 
 With help of this library you can generate fancy charts and export it to png, pdf or svg formats. 
-See example below:
+
+:star: If you :heart: library, please star it! :star:
 
 ![Highchart chart](https://habrastorage.org/files/33f/df6/a79/33fdf6a791ae4f6982043455fc4e20b4.png)
 
