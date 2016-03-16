@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>highcharts-export-client</id>
-        <version>1.0.$build$</version>
+        <version>$version$</version>
         <title>Highchart export server client</title>
         <authors>Ilya Pirozhenko</authors>
         <owners>Ilya Pirozhenko</owners>
