@@ -1,6 +1,7 @@
 #highcharts-export-client
 
 [![Build status](https://ci.appveyor.com/api/projects/status/lx03i6374237hj73?svg=true)](https://ci.appveyor.com/project/sochix/highcharts-export-client)
+[![NuGet version](https://badge.fury.io/nu/highcharts-export-client.svg)](https://www.nuget.org/packages/highcharts-export-client/)
 
 Highcharts-export-client is [highcharts-export-server](http://www.highcharts.com/docs/export-module/export-module-overview) API wrapper. 
 With help of this library you can generate fancy charts and export it to png, pdf or svg formats. 
