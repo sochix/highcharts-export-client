@@ -23,7 +23,7 @@ PM > Install-Package highcharts-export-client
 
 * In development, you can use default highcharts server [http://export.highcharts.com/](http://export.highcharts.com/).
 
-* In production, library needs a server with installed [highcharts-export-server](link). Basic installation steps described [here](http://www.highcharts.com/docs/export-module/setting-up-the-server) & [here](http://withr.me/set-up-highcharts-export-server-on-ubuntu-server-12-dot-04-step-by-step/).
+* In production, library needs a server with installed [highcharts-export-server](http://www.highcharts.com/docs/export-module/setting-up-the-server). Basic installation steps described [here](http://www.highcharts.com/docs/export-module/setting-up-the-server) & [here](http://withr.me/set-up-highcharts-export-server-on-ubuntu-server-12-dot-04-step-by-step/).
 
 #Usage
 ##Draw chart from Highchart Options
@@ -47,16 +47,16 @@ Options is a highchart options.
 		}
 	};
 
-	var res = await client.GetChartImageFromOptions(JsonConvert.SerializeObject(options));
-	
-	File.WriteAllBytes("image.png", res);
+	var res = await client.GetChartImageFromOptionsAsync(JsonConvert.SerializeObject(options));
+
+	File.WriteAllBytes("__imageFromBytes_defaultSettings.png", res);
 ```
 
 ##Draw chart from SVG
 
 To draw a chart from SVG file, use this method:
 ```
-	var res = await client.GetChartImageFromSvg(_svg);
+	var res = await client.GetChartImageFromSvgAsync(_svg);
 ```
 
 ##Chart settings
@@ -66,9 +66,9 @@ Full settings description see on [highcharts-export-server page](http://www.high
 ```
 	var settings = new HighchartsSetting
 	{
-		ExportImageType = "jpg", // possible png, pdf, jpg 
-		ScaleFactor = 4, 
-		ImageWidth = 1500, // max 1600 px
+		ExportImageType = "jpg",
+		ScaleFactor = 4,
+		ImageWidth = 1500,
 		ServerAddress = _highchartsServer
 	};
 
@@ -80,7 +80,7 @@ You can use library in async mode. In this mode, each call will return a link to
 Image will be stored on the server for 15 minutes. See full documentation on [highcharts-export-server](http://www.highcharts.com/docs/export-module/export-module-overview).
 
 ```
-	var res = await client.GetChartImageLinkFromOptions(JsonConvert.SerializeObject(options));
+	var res = await client.GetChartImageLinkFromOptionsAsync(JsonConvert.SerializeObject(options));
 ```
 
 #License

@@ -29,7 +29,7 @@ namespace HighchartsExportClient.Tests
 				}
 			};
 
-			var res = await client.GetChartImageFromOptions(JsonConvert.SerializeObject(options));
+			var res = await client.GetChartImageFromOptionsAsync(JsonConvert.SerializeObject(options));
 
 			Assert.IsNotNull(res);
 			File.WriteAllBytes("__imageFromBytes_defaultSettings.png", res);
@@ -60,7 +60,7 @@ namespace HighchartsExportClient.Tests
 				}
 			};
 
-			var res = await client.GetChartImageFromOptions(JsonConvert.SerializeObject(options));
+			var res = await client.GetChartImageFromOptionsAsync(JsonConvert.SerializeObject(options));
 
 			Assert.IsNotNull(res);
 			File.WriteAllBytes($"__imageFromBytes_customSettings.{settings.ExportImageType}", res);
@@ -83,7 +83,7 @@ namespace HighchartsExportClient.Tests
 				}
 			};
 
-			var res = await client.GetChartImageLinkFromOptions(JsonConvert.SerializeObject(options));
+			var res = await client.GetChartImageLinkFromOptionsAsync(JsonConvert.SerializeObject(options));
 
 			Assert.IsNotNull(res);
 			Console.WriteLine(res);
@@ -94,7 +94,7 @@ namespace HighchartsExportClient.Tests
 		{
 			var client = new HighchartsClient(_highchartsServer);
 
-			var res = await client.GetChartImageLinkFromSvg(_svg);
+			var res = await client.GetChartImageLinkFromSvgAsync(_svg);
 
 			Assert.IsNotNull(res);
 			Console.WriteLine(res);
@@ -105,7 +105,7 @@ namespace HighchartsExportClient.Tests
 		{
 			var client = new HighchartsClient(_highchartsServer);
 
-			var res = await client.GetChartImageFromSvg(_svg);
+			var res = await client.GetChartImageFromSvgAsync(_svg);
 
 			Assert.IsNotNull(res);
 			File.WriteAllBytes("__imageFromSvg_defaultSettings.png", res);

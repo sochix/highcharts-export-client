@@ -6,10 +6,10 @@ namespace HighchartsExportClient
 {
 	public interface IHighchartsClient
 	{
-		Task<byte[]> GetChartImageFromOptions(string options);
-		Task<byte[]> GetChartImageFromSvg(string svg);
-		Task<string> GetChartImageLinkFromOptions(string options);
-		Task<string> GetChartImageLinkFromSvg(string svg);
+		Task<byte[]> GetChartImageFromOptionsAsync(string options);
+		Task<byte[]> GetChartImageFromSvgAsync(string svg);
+		Task<string> GetChartImageLinkFromOptionsAsync(string options);
+		Task<string> GetChartImageLinkFromSvgAsync(string svg);
 	}
 
 	public class HighchartsSetting
@@ -105,7 +105,7 @@ namespace HighchartsExportClient
 			};
 		}
 
-		public async Task<byte[]> GetChartImageFromOptions(string options)
+		public async Task<byte[]> GetChartImageFromOptionsAsync(string options)
 		{
 			var request = GetRequestSettings(options, getLink: false, isSvg: false);
 			var response = await MakeRequest(request);
@@ -113,7 +113,7 @@ namespace HighchartsExportClient
 			return await response.Content.ReadAsByteArrayAsync();
 		}
 
-		public async Task<byte[]> GetChartImageFromSvg(string svg)
+		public async Task<byte[]> GetChartImageFromSvgAsync(string svg)
 		{
 			var request = GetRequestSettings(svg, getLink: false, isSvg: true);
 			var response = await MakeRequest(request);
@@ -121,7 +121,7 @@ namespace HighchartsExportClient
 			return await response.Content.ReadAsByteArrayAsync();
 		}
 
-		public async Task<string> GetChartImageLinkFromOptions(string options)
+		public async Task<string> GetChartImageLinkFromOptionsAsync(string options)
 		{
 			var request = GetRequestSettings(options, getLink: true, isSvg: false);
 
@@ -131,7 +131,7 @@ namespace HighchartsExportClient
 			return $"{_settings.ServerAddress}{filePath}";
 		}
 
-		public async Task<string> GetChartImageLinkFromSvg(string svg)
+		public async Task<string> GetChartImageLinkFromSvgAsync(string svg)
 		{
 			var request = GetRequestSettings(svg, getLink: true, isSvg: true);
 
