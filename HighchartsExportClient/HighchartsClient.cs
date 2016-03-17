@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -65,11 +66,14 @@ namespace HighchartsExportClient
 		}
 	}
 
-	public class HighchartsClient : IHighchartsClient
+	public class HighchartsClient : IHighchartsClient, IDisposable
 	{
 		private readonly HighchartsSetting _settings;
+		private readonly HttpClient _httpClient;
+
 		public HighchartsClient(string serverAddress)
 		{
+			_httpClient = new HttpClient();
 			_settings = new HighchartsSetting
 			{
 				ServerAddress = serverAddress
@@ -78,19 +82,19 @@ namespace HighchartsExportClient
 
 		public HighchartsClient(HighchartsSetting settings)
 		{
+			_httpClient = new HttpClient();
 			_settings = settings;
 		}
 
 		private async Task<HttpResponseMessage> MakeRequest(Dictionary<string, string> settings)
 		{
-			using (var httpClient = new HttpClient())
-			{
-				var response =  await httpClient.PostAsync(_settings.ServerAddress, new FormUrlEncodedContent(settings));
+			var response =  await _httpClient
+				.PostAsync(_settings.ServerAddress, new FormUrlEncodedContent(settings))
+				.ConfigureAwait(false);
 
-				response.EnsureSuccessStatusCode();
+			response.EnsureSuccessStatusCode();
 
-				return response;
-			}
+			return response;
 		}
 
 		private Dictionary<string, string> GetRequestSettings(string data, bool getLink, bool isSvg)
@@ -108,25 +112,25 @@ namespace HighchartsExportClient
 		public async Task<byte[]> GetChartImageFromOptionsAsync(string options)
 		{
 			var request = GetRequestSettings(options, getLink: false, isSvg: false);
-			var response = await MakeRequest(request);
+			var response = await MakeRequest(request).ConfigureAwait(false);
 
-			return await response.Content.ReadAsByteArrayAsync();
+			return await response.Content.ReadAsByteArrayAsync().ConfigureAwait(false);
 		}
 
 		public async Task<byte[]> GetChartImageFromSvgAsync(string svg)
 		{
 			var request = GetRequestSettings(svg, getLink: false, isSvg: true);
-			var response = await MakeRequest(request);
+			var response = await MakeRequest(request).ConfigureAwait(false);
 
-			return await response.Content.ReadAsByteArrayAsync();
+			return await response.Content.ReadAsByteArrayAsync().ConfigureAwait(false);
 		}
 
 		public async Task<string> GetChartImageLinkFromOptionsAsync(string options)
 		{
 			var request = GetRequestSettings(options, getLink: true, isSvg: false);
 
-			var response = await MakeRequest(request);
-			var filePath = await response.Content.ReadAsStringAsync();
+			var response = await MakeRequest(request).ConfigureAwait(false);
+			var filePath = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
 			return $"{_settings.ServerAddress}{filePath}";
 		}
@@ -135,10 +139,15 @@ namespace HighchartsExportClient
 		{
 			var request = GetRequestSettings(svg, getLink: true, isSvg: true);
 
-			var response = await MakeRequest(request);
-			var filePath = await response.Content.ReadAsStringAsync();
+			var response = await MakeRequest(request).ConfigureAwait(false);
+			var filePath = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
 			return $"{_settings.ServerAddress}{filePath}";
+		}
+
+		public void Dispose()
+		{
+			_httpClient.Dispose();
 		}
 	}
 }
