@@ -8,6 +8,9 @@ With help of this library you can generate fancy charts and export it to png, pd
 
 :star: If you :heart: library, please star it! :star:
 
+[:uk: English tutorial](http://www.sochix.ru/using-highchart-js-on-a-server-side/)
+[:ru: Russian tutorial](https://habrahabr.ru/post/279515/)
+
 ![Highchart chart](https://habrastorage.org/files/33f/df6/a79/33fdf6a791ae4f6982043455fc4e20b4.png)
 
 
