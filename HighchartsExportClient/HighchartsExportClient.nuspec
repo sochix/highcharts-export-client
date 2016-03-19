@@ -8,7 +8,7 @@
         <owners>Ilya Pirozhenko</owners>
         <licenseUrl>https://github.com/sochix/highcharts-export-client#license</licenseUrl>
         <projectUrl>https://github.com/sochix/highcharts-export-client</projectUrl>
-        <iconUrl>http://www.highcharts.com/favicon.ico</iconUrl>
+        <iconUrl>https://habrastorage.org/files/d11/364/616/d1136461627b406c897cf5b744f290e2.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Highcharts-export-client is highcharts-export-server API wrapper. With help of this library you can generate fancy charts and export it to png, pdf or svg formats.</description>
         <releaseNotes>Initial release.</releaseNotes>
